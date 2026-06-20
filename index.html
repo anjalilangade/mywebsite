@@ -23,21 +23,25 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(250, 249, 246, 0.95);
-      backdrop-filter: blur(8px);
+      background: transparent;
       z-index: 100;
-      padding: 18px 60px;
+      padding: 24px 60px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e8e0d4;
+      transition: background 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(10px);
     }
 
     nav .logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       letter-spacing: 1.5px;
-      color: #5a7a5a;
+      color: #fff;
       font-weight: 500;
       font-style: italic;
     }
@@ -50,85 +54,163 @@
 
     nav ul a {
       text-decoration: none;
-      color: #2c2c2c;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
       transition: color 0.2s;
     }
 
     nav ul a:hover {
-      color: #5a7a5a;
+      color: #fff;
     }
 
     /* HERO */
     .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #e8f0e8 0%, #f5ede0 60%, #faf9f6 100%);
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 100px 40px 60px;
+      background: linear-gradient(135deg, #d6e4d6 0%, #e8ddd0 45%, #f0e8de 100%);
     }
 
-    .hero-inner {
-      max-width: 700px;
+    /* decorative corner blocks like the reference */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 220px; height: 180px;
+      background: rgba(180, 160, 130, 0.25);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 80px;
+      width: 260px; height: 100px;
+      background: rgba(160, 190, 160, 0.3);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+    }
+
+    .hero-text {
+      max-width: 500px;
     }
 
     .hero-tagline {
-      font-size: 0.85rem;
-      letter-spacing: 4px;
+      font-size: 0.75rem;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: #8a9e6e;
+      color: #6b7c5a;
       margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: 3.8rem;
-      font-weight: normal;
-      line-height: 1.15;
-      color: #2c2c2c;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 span {
-      color: #5a7a5a;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 400;
+      line-height: 1.05;
+      color: #1a1a1a;
+      margin-bottom: 22px;
     }
 
     .hero-sub {
-      font-size: 1.05rem;
-      color: #6b6b6b;
-      line-height: 1.8;
-      margin-bottom: 36px;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.85;
+      margin-bottom: 38px;
+      max-width: 360px;
     }
+
+    .hero-image-col {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 100vh;
+    }
+
+    .hero-image-col img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 95%;
+      max-height: 860px;
+      object-fit: contain;
+      object-position: bottom center;
+    }
+
+    .hero-yoga-text {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem;
+      letter-spacing: 8px;
+      color: rgba(80,80,80,0.4);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .hero-socials {
+      position: absolute;
+      bottom: 48px;
+      right: 60px;
+      display: flex;
+      gap: 18px;
+      z-index: 3;
+    }
+
+    .hero-socials a {
+      color: #555;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .hero-socials a:hover { color: #3e5c3e; }
 
     .btn {
       display: inline-block;
-      padding: 14px 38px;
-      background: #5a7a5a;
+      padding: 13px 36px;
+      background: #3e5c3e;
       color: #fff;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.2s;
-      margin: 6px;
+      border-radius: 1px;
+      transition: all 0.2s;
+      margin-right: 12px;
     }
 
     .btn:hover {
-      background: #3e5c3e;
+      background: #2b4020;
     }
 
     .btn-outline {
       background: transparent;
-      border: 1.5px solid #5a7a5a;
-      color: #5a7a5a;
+      border: 1.5px solid #3e5c3e;
+      color: #3e5c3e;
+      margin-right: 0;
     }
 
     .btn-outline:hover {
-      background: #5a7a5a;
+      background: #3e5c3e;
       color: #fff;
     }
 
@@ -394,15 +476,26 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-inner">
-      <p class="hero-tagline">500-Hour RYT Certified · Yoga Alliance</p>
-      <h1>Find Your <span>Balance.</span><br>Find Your Practice.</h1>
-      <p class="hero-sub">
-        Ashtanga Vinyasa Yoga instruction rooted in alignment, breath, and intention —
-        for beginners and evolving practitioners alike.
-      </p>
-      <a href="#classes" class="btn">Explore Classes</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-tagline">500-Hour RYT · Yoga Alliance Certified</p>
+        <h1>Move.<br>Breathe.<br>Transform.</h1>
+        <p class="hero-sub">
+          Ashtanga Vinyasa Yoga rooted in alignment, breath, and intention —
+          for beginners and evolving practitioners alike.
+        </p>
+        <a href="#classes" class="btn">Explore Classes</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-image-col">
+        <img src="anjali-nobg.png" alt="Anjali Langade in yoga pose">
+        <span class="hero-yoga-text">Ashtanga Vinyasa · Bangalore</span>
+      </div>
+    </div>
+    <div class="hero-socials">
+      <a href="https://www.instagram.com/anuja_297" target="_blank" title="Instagram">📸</a>
+      <a href="https://www.linkedin.com/in/anjali-langade" target="_blank" title="LinkedIn">🔗</a>
+      <a href="mailto:anjalilangade@gmail.com" title="Email">📧</a>
     </div>
   </div>
 
@@ -582,6 +675,13 @@
   <footer>
     <p>© 2025 Anjali Langade · 500-Hour RYT · Yoga Alliance Certified · Bangalore, India</p>
   </footer>
+
+  <script>
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
 
 </body>
 </html>
