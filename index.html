@@ -6,6 +6,16 @@
   <title>Anjali Langade | Yoga Instructor</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
+    /* ── Palette ──────────────────────────────────────────
+       Ivory   (primary bg)  : #F7F3EB
+       Terracotta (accent)   : #B05A45
+       Terracotta dark       : #8E4535
+       Terracotta light      : #FAE8E2
+       Black text            : #1a1a1a
+       Grey text             : #555 / #666 / #888
+       White                 : #ffffff
+    ──────────────────────────────────────────────────── */
+
     * {
       margin: 0;
       padding: 0;
@@ -14,8 +24,8 @@
 
     body {
       font-family: 'Georgia', serif;
-      color: #2c2c2c;
-      background: #faf9f6;
+      color: #1a1a1a;
+      background: #F7F3EB;
     }
 
     /* NAV */
@@ -33,7 +43,7 @@
     }
 
     nav.scrolled {
-      background: rgba(10, 10, 10, 0.85);
+      background: rgba(26, 16, 12, 0.88);
       backdrop-filter: blur(10px);
     }
 
@@ -41,9 +51,31 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.7rem;
       letter-spacing: 1.5px;
-      color: #fff;
+      color: #B05A45;
       font-weight: 500;
       font-style: italic;
+      line-height: 1.2;
+      transition: color 0.3s;
+    }
+
+    nav .logo-sub {
+      font-family: 'Georgia', serif;
+      font-size: 0.62rem;
+      letter-spacing: 2.5px;
+      color: #5a4a44;
+      font-style: normal;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-top: 3px;
+      transition: color 0.3s;
+    }
+
+    nav.scrolled .logo {
+      color: #fff;
+    }
+
+    nav.scrolled .logo-sub {
+      color: rgba(255,255,255,0.65);
     }
 
     nav ul {
@@ -54,7 +86,7 @@
 
     nav ul a {
       text-decoration: none;
-      color: rgba(255,255,255,0.85);
+      color: #1a1a1a;
       font-size: 0.82rem;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -62,6 +94,14 @@
     }
 
     nav ul a:hover {
+      color: #B05A45;
+    }
+
+    nav.scrolled ul a {
+      color: rgba(255,255,255,0.85);
+    }
+
+    nav.scrolled ul a:hover {
       color: #fff;
     }
 
@@ -73,24 +113,86 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #d6e4d6 0%, #e8ddd0 45%, #f0e8de 100%);
+      background: linear-gradient(135deg, #F7F3EB 0%, #F0E4DA 45%, #EDD5C5 100%);
     }
 
-    /* decorative corner blocks like the reference */
+    .profile-section {
+      position: absolute;
+      left: 48px;
+      top: 32vh;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .about-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-style: italic;
+      font-weight: 700;
+      color: #B05A45;
+      letter-spacing: 1px;
+    }
+
+    .profile-blob {
+      position: relative;
+      left: auto;
+      top: auto;
+      transform: none;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 2;
+      background: #F0DDD2;
+      box-shadow: 0 12px 40px rgba(92, 46, 30, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-blob img {
+      width: 160%;
+      height: 160%;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .top-band {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30vh;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .top-band svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* decorative corner blobs */
     .hero::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 220px; height: 180px;
-      background: rgba(180, 160, 130, 0.25);
+      top: -60px; left: -60px;
+      width: 260px; height: 240px;
+      background: rgba(176, 90, 69, 0.30);
+      border-radius: 58% 42% 52% 48% / 44% 56% 44% 56%;
     }
 
     .hero::after {
       content: '';
       position: absolute;
-      bottom: 0; right: 80px;
-      width: 260px; height: 100px;
-      background: rgba(160, 190, 160, 0.3);
+      bottom: -60px; right: 20px;
+      width: 280px; height: 220px;
+      background: rgba(200, 155, 130, 0.75);
+      border-radius: 46% 54% 62% 38% / 54% 44% 56% 46%;
     }
 
     .hero-content {
@@ -114,7 +216,7 @@
       font-size: 0.75rem;
       letter-spacing: 5px;
       text-transform: uppercase;
-      color: #6b7c5a;
+      color: #B05A45;
       margin-bottom: 20px;
     }
 
@@ -137,18 +239,16 @@
 
     .hero-image-col {
       position: relative;
+      width: 100%;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      height: 100vh;
     }
 
     .hero-image-col img {
-      position: absolute;
-      bottom: 0;
-      right: 0;
       height: 95%;
-      max-height: 860px;
+      max-height: 900px;
       object-fit: contain;
       object-position: bottom center;
     }
@@ -161,7 +261,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.72rem;
       letter-spacing: 8px;
-      color: rgba(80,80,80,0.4);
+      color: rgba(80,60,50,0.35);
       text-transform: uppercase;
       white-space: nowrap;
     }
@@ -176,18 +276,18 @@
     }
 
     .hero-socials a {
-      color: #555;
+      color: #666;
       font-size: 1.1rem;
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .hero-socials a:hover { color: #3e5c3e; }
+    .hero-socials a:hover { color: #B05A45; }
 
     .btn {
       display: inline-block;
       padding: 13px 36px;
-      background: #3e5c3e;
+      background: #B05A45;
       color: #fff;
       text-decoration: none;
       font-size: 0.78rem;
@@ -199,18 +299,18 @@
     }
 
     .btn:hover {
-      background: #2b4020;
+      background: #8E4535;
     }
 
     .btn-outline {
       background: transparent;
-      border: 1.5px solid #3e5c3e;
-      color: #3e5c3e;
+      border: 1.5px solid #B05A45;
+      color: #B05A45;
       margin-right: 0;
     }
 
     .btn-outline:hover {
-      background: #3e5c3e;
+      background: #B05A45;
       color: #fff;
     }
 
@@ -225,21 +325,21 @@
       font-size: 0.78rem;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: #8a9e6e;
+      color: #B05A45;
       margin-bottom: 12px;
     }
 
     .section-title {
       font-size: 2.2rem;
       font-weight: normal;
-      color: #2c2c2c;
+      color: #1a1a1a;
       margin-bottom: 28px;
       line-height: 1.3;
     }
 
     /* BIO */
     #about {
-      background: #fff;
+      background: #ffffff;
       max-width: 100%;
       padding: 90px 0;
     }
@@ -270,7 +370,7 @@
     .credential-icon {
       width: 32px;
       height: 32px;
-      background: #e8f0e8;
+      background: #FAE8E2;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -287,7 +387,7 @@
     }
 
     .credential-text strong {
-      color: #2c2c2c;
+      color: #1a1a1a;
       display: block;
       margin-bottom: 2px;
     }
@@ -303,11 +403,11 @@
     }
 
     .bio-quote {
-      border-left: 3px solid #8a9e6e;
+      border-left: 3px solid #B05A45;
       padding-left: 24px;
       margin: 28px 0;
       font-size: 1.15rem;
-      color: #5a7a5a;
+      color: #B05A45;
       font-style: italic;
       line-height: 1.7;
     }
@@ -322,8 +422,8 @@
 
     .skill-tag {
       padding: 7px 18px;
-      background: #e8f0e8;
-      color: #3e5c3e;
+      background: #FAE8E2;
+      color: #B05A45;
       border-radius: 20px;
       font-size: 0.85rem;
       letter-spacing: 0.5px;
@@ -331,7 +431,7 @@
 
     /* CLASSES */
     #classes {
-      background: #faf9f6;
+      background: #F7F3EB;
       max-width: 100%;
       padding: 90px 0;
     }
@@ -350,15 +450,15 @@
     }
 
     .class-card {
-      background: #fff;
+      background: #ffffff;
       border-radius: 6px;
       padding: 40px;
-      border: 1px solid #e8e0d4;
+      border: 1px solid #EDE0D8;
       transition: box-shadow 0.2s;
     }
 
     .class-card:hover {
-      box-shadow: 0 8px 30px rgba(90, 122, 90, 0.1);
+      box-shadow: 0 8px 30px rgba(200, 112, 90, 0.12);
     }
 
     .class-card .icon {
@@ -369,15 +469,15 @@
     .class-card h3 {
       font-size: 1.3rem;
       font-weight: normal;
-      color: #2c2c2c;
+      color: #1a1a1a;
       margin-bottom: 12px;
     }
 
     .class-card .badge {
       display: inline-block;
       padding: 4px 12px;
-      background: #f5ede0;
-      color: #a07040;
+      background: #FAE8E2;
+      color: #B05A45;
       border-radius: 20px;
       font-size: 0.75rem;
       letter-spacing: 1px;
@@ -402,7 +502,7 @@
     /* CONTACT */
     #contact {
       text-align: center;
-      background: linear-gradient(135deg, #e8f0e8, #f5ede0);
+      background: linear-gradient(135deg, #F7F3EB, #FAE8E2);
       max-width: 100%;
       padding: 90px 40px;
     }
@@ -431,24 +531,270 @@
       align-items: center;
       gap: 8px;
       font-size: 0.9rem;
-      color: #5a7a5a;
+      color: #B05A45;
       text-decoration: none;
     }
 
     .contact-link:hover {
-      color: #3e5c3e;
+      color: #8E4535;
       text-decoration: underline;
     }
 
     /* FOOTER */
     footer {
-      text-align: center;
-      padding: 28px;
+      padding: 28px 60px 36px;
       font-size: 0.82rem;
-      color: #999;
-      border-top: 1px solid #e8e0d4;
-      background: #faf9f6;
+      color: #888;
+      border-top: 1px solid #EDE0D8;
+      background: #F7F3EB;
       letter-spacing: 1px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 500;
+      color: #B05A45;
+      letter-spacing: 1px;
+    }
+
+    .footer-logo-sub {
+      font-family: 'Georgia', serif;
+      font-size: 0.62rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #5a4a44;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      color: #B05A45;
+      text-decoration: none;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .social-icon:hover {
+      color: #8E4535;
+      transform: translateY(-2px);
+    }
+
+    .footer-copy {
+      color: #888;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+    /* CLASSES SECTION */
+    #classes {
+      background: #ffffff;
+      padding: 90px 60px;
+      max-width: 100%;
+    }
+
+    .classes-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 1100px;
+    }
+
+    .yoga-card {
+      background: #F7F3EB;
+      border-radius: 12px;
+      padding: 44px 40px;
+      border: 1px solid #EDE0D8;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .yoga-card:hover {
+      box-shadow: 0 12px 40px rgba(176, 90, 69, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .yoga-card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+    }
+
+    .yoga-card-badge {
+      display: inline-block;
+      padding: 5px 14px;
+      background: #FAE8E2;
+      color: #B05A45;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .yoga-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .yoga-card-desc {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .yoga-card-list {
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 2.1;
+    }
+
+    .yoga-card-list li::marker {
+      color: #B05A45;
+    }
+
+    /* CLICKABLE CARD */
+    .yoga-card--link {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-arrow {
+      font-size: 1.4rem;
+      color: #B05A45;
+      transition: transform 0.2s;
+    }
+
+    .yoga-card--link:hover .card-arrow {
+      transform: translateX(5px);
+    }
+
+    /* SUB-PAGE */
+    .sub-page {
+      position: fixed;
+      inset: 0;
+      background: #F7F3EB;
+      z-index: 200;
+      overflow-y: auto;
+      animation: fadeSlideIn 0.3s ease;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .sub-page-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 60px 80px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 0.88rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #B05A45;
+      cursor: pointer;
+      margin-bottom: 40px;
+      padding: 0;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .back-btn:hover {
+      color: #8E4535;
+      gap: 10px;
+    }
+
+    /* BATCH SECTIONS */
+    .batch-section {
+      margin-bottom: 48px;
+    }
+
+    .batch-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .batch-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .batch-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #B05A45;
+      letter-spacing: 0.5px;
+    }
+
+    .batch-days {
+      font-size: 0.82rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .batch-start {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 6px;
+    }
+
+    .batch-start strong {
+      color: #1a1a1a;
     }
 
     /* RESPONSIVE */
@@ -466,214 +812,130 @@
 
   <!-- NAV -->
   <nav>
-    <div class="logo">Move with Anjali</div>
+    <div class="logo">Move with Anjali
+      <div class="logo-sub">Strength · Balance · Flexibility</div>
+    </div>
     <ul>
       <li><a href="#about">About</a></li>
-      <li><a href="#classes">Classes</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#classes">Yoga Classes</a></li>
+      <li><a href="#contact">Contact Us</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — photo only -->
   <div class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="hero-tagline">500-Hour RYT · Yoga Alliance Certified</p>
-        <h1>Move.<br>Breathe.<br>Transform.</h1>
-        <p class="hero-sub">
-          Ashtanga Vinyasa Yoga rooted in alignment, breath, and intention —
-          for beginners and evolving practitioners alike.
-        </p>
-        <a href="#classes" class="btn">Explore Classes</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
-      </div>
-      <div class="hero-image-col">
-        <img src="anjali-nobg.png" alt="Anjali Langade in yoga pose">
-        <span class="hero-yoga-text">Ashtanga Vinyasa · Bangalore</span>
-      </div>
+    <div class="top-band">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 H1440 V60 C1080,100 360,52 0,94 Z" fill="#EDD5C5" fill-opacity="0.55"/>
+        <path d="M0,94 C360,52 1080,100 1440,60" fill="none" stroke="#5C2E1E" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+      </svg>
     </div>
-    <div class="hero-socials">
-      <a href="https://www.instagram.com/anuja_297" target="_blank" title="Instagram">📸</a>
-      <a href="https://www.linkedin.com/in/anjali-langade" target="_blank" title="LinkedIn">🔗</a>
-      <a href="mailto:anjalilangade@gmail.com" title="Email">📧</a>
-    </div>
-  </div>
-
-  <!-- BIO / ABOUT -->
-  <div id="about">
-    <div class="about-inner">
-      <div class="about-left">
-        <p class="section-label">About</p>
-        <h2 class="section-title">Anjali<br>Langade</h2>
-
-        <div class="credentials">
-          <div class="credential-item">
-            <div class="credential-icon">🧘</div>
-            <div class="credential-text">
-              <strong>500-Hour RYT</strong>
-              Yoga Alliance Certified — Ashtanga Vinyasa
-            </div>
-          </div>
-          <div class="credential-item">
-            <div class="credential-icon">📍</div>
-            <div class="credential-text">
-              <strong>Bangalore, India</strong>
-              Available for in-person &amp; online sessions
-            </div>
-          </div>
-          <div class="credential-item">
-            <div class="credential-icon">🌿</div>
-            <div class="credential-text">
-              <strong>3+ Years of Practice</strong>
-              Practitioner at Cult.fit since 2022
-            </div>
-          </div>
-          <div class="credential-item">
-            <div class="credential-icon">📚</div>
-            <div class="credential-text">
-              <strong>M.Tech, NIT Warangal</strong>
-              Analytical mind applied to mindful movement
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-right">
-        <div class="bio-text">
-          <p>
-            Anjali Langade is a <strong>500-Hour Registered Yoga Teacher (RYT)</strong> certified by the Yoga Alliance,
-            specialising in <strong>Ashtanga Vinyasa Yoga</strong>. With over three years of dedicated personal practice
-            and a deep understanding of the Primary and Intermediate Ashtanga Series, she brings precision,
-            warmth, and clarity to every class she leads.
-          </p>
-
-          <div class="bio-quote">
-            "Yoga is not about touching your toes. It's about what you learn on the way down."
-          </div>
-
-          <p>
-            Her journey into yoga began alongside a rigorous academic career — holding an <strong>M.Tech in
-            Transportation Engineering from NIT Warangal</strong> — which gave her a uniquely analytical lens
-            for understanding body mechanics, alignment, and the science behind movement. This blend of
-            intellect and intuition makes her instruction exceptionally clear and grounded.
-          </p>
-
-          <p>
-            During her <strong>500-Hour Teacher Training</strong>, Anjali immersed herself in Pranayama, Yoga
-            Theory, Ayurveda, Teaching Methodology, and Asana Alignment — building a holistic toolkit that
-            goes far beyond the physical postures. She is passionate about helping <strong>beginners build
-            confidence</strong>, break through hesitation, and discover a practice that is truly their own.
-          </p>
-
-          <p>
-            Whether you are stepping onto the mat for the very first time or deepening an existing practice,
-            Anjali creates a space that is welcoming, non-judgmental, and deeply transformative.
-          </p>
-        </div>
-
-        <div class="skills-grid" style="margin-top: 28px;">
-          <span class="skill-tag">Asana Alignment</span>
-          <span class="skill-tag">Vinyasa Flow</span>
-          <span class="skill-tag">Pranayama</span>
-          <span class="skill-tag">Ashtanga Primary Series</span>
-          <span class="skill-tag">Ashtanga Intermediate Series</span>
-          <span class="skill-tag">Class Sequencing</span>
-          <span class="skill-tag">Basic Anatomy</span>
-          <span class="skill-tag">Ayurveda Basics</span>
-        </div>
+    <div class="profile-section">
+      <p class="about-label">About Me</p>
+      <div class="profile-blob">
+        <img src="anjali-nobg.png" alt="Anjali Langade">
       </div>
     </div>
   </div>
 
   <!-- CLASSES -->
-  <div id="classes">
-    <div class="classes-inner">
-      <p class="section-label">How We Practice Together</p>
-      <h2 class="section-title">Online &amp; Offline Classes</h2>
+  <section id="classes">
+    <p class="section-label">What We Offer</p>
+    <h2 class="classes-heading">Yoga Classes</h2>
+    <div class="cards-grid">
 
-      <div class="classes-grid">
-
-        <!-- Online 1:1 -->
-        <div class="class-card">
-          <div class="icon">💻</div>
-          <span class="badge">Online · Live</span>
-          <h3>Personal Online Sessions</h3>
-          <p>One-on-one sessions over video call, tailored entirely to your body, pace, and goals. Perfect if you prefer learning from the comfort of your home without compromising on personalised attention.</p>
-          <ul>
-            <li>Beginner-friendly to intermediate</li>
-            <li>Flexible scheduling across time zones</li>
-            <li>Alignment cues &amp; breathwork coaching</li>
-            <li>Session recordings available on request</li>
-          </ul>
-        </div>
-
-        <!-- Online Group -->
-        <div class="class-card">
-          <div class="icon">🌐</div>
-          <span class="badge">Online · Group</span>
-          <h3>Online Group Classes</h3>
-          <p>Join a small, focused group for a guided Ashtanga Vinyasa session — structured, energising, and community-driven. A great way to maintain consistency and stay motivated.</p>
-          <ul>
-            <li>Small groups for individual attention</li>
-            <li>Pranayama &amp; meditation included</li>
-            <li>Weekly structured schedule</li>
-            <li>Interactive Q&amp;A after each session</li>
-          </ul>
-        </div>
-
-        <!-- In-Person 1:1 -->
-        <div class="class-card">
-          <div class="icon">🧘</div>
-          <span class="badge">In-Person · Bangalore</span>
-          <h3>Personal Offline Sessions</h3>
-          <p>Meet in-person in Bangalore for hands-on, alignment-focused practice. Anjali provides tactile adjustments and real-time feedback that elevate your practice to the next level.</p>
-          <ul>
-            <li>Hands-on alignment corrections</li>
-            <li>Customised practice plans</li>
-            <li>Suitable for all levels</li>
-            <li>Pranayama &amp; cool-down included</li>
-          </ul>
-        </div>
-
-        <!-- In-Person Group -->
-        <div class="class-card">
-          <div class="icon">🌿</div>
-          <span class="badge">In-Person · Group</span>
-          <h3>Group Yoga Classes</h3>
-          <p>Experience the energy of collective practice in a warm, encouraging environment. Group classes in Bangalore are designed to challenge, inspire, and build community around yoga.</p>
-          <ul>
-            <li>Ashtanga Vinyasa flow sequences</li>
-            <li>All experience levels welcome</li>
-            <li>Yoga theory &amp; philosophy discussions</li>
-            <li>Ayurveda &amp; lifestyle tips shared</li>
-          </ul>
-        </div>
-
+      <div class="yoga-card yoga-card--link" onclick="showPage('group-classes-page')">
+        <h3 class="yoga-card-title">Online Group Classes</h3>
+        <span class="card-arrow">→</span>
       </div>
+
+      <div class="yoga-card yoga-card--link" onclick="showPage('one-on-one-page')">
+        <h3 class="yoga-card-title">One-on-One Sessions</h3>
+        <span class="card-arrow">→</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ONLINE GROUP CLASSES SUB-PAGE -->
+  <div id="group-classes-page" class="sub-page" style="display:none;">
+    <div class="sub-page-inner">
+      <button class="back-btn" onclick="hidePage('group-classes-page')">← Back</button>
+      <p class="section-label">Online Group Classes</p>
+      <h2 class="classes-heading">Batch Timings</h2>
+
+      <div class="batch-section">
+        <h3 class="batch-heading">🌅 Morning</h3>
+        <div class="cards-grid">
+          <div class="yoga-card batch-card">
+            <p class="batch-time">6:30 - 7:30</p>
+            <p class="batch-days">Mon · Wed · Fri</p>
+            <p class="batch-start">Starting <strong>1 July 2026</strong></p>
+          </div>
+          <div class="yoga-card batch-card">
+            <p class="batch-time">7:30 - 8:30</p>
+            <p class="batch-days">Mon · Wed · Fri</p>
+            <p class="batch-start">Starting <strong>7 July 2026</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="batch-section">
+        <h3 class="batch-heading">🌆 Evening</h3>
+        <div class="cards-grid">
+          <div class="yoga-card batch-card">
+            <p class="batch-time">5:30 - 6:30</p>
+            <p class="batch-days">Mon · Wed · Fri</p>
+            <p class="batch-start">Starting <strong>1 July 2026</strong></p>
+          </div>
+          <div class="yoga-card batch-card">
+            <p class="batch-time">6:30 - 7:30</p>
+            <p class="batch-days">Mon · Wed · Fri</p>
+            <p class="batch-start">Starting <strong>7 July 2026</strong></p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- CONTACT -->
-  <div id="contact">
-    <div class="contact-inner">
-      <p class="section-label">Let's Connect</p>
-      <h2 class="section-title" style="font-size:2rem;">Ready to Begin Your Journey?</h2>
-      <p>
-        Whether you have questions about which class is right for you, or you're ready to book
-        your first session — Anjali would love to hear from you.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:anjalilangade@gmail.com" class="contact-link">📧 anjalilangade@gmail.com</a>
-        <a href="tel:+919011418493" class="contact-link">📞 +91 90114 18493</a>
-        <a href="https://www.linkedin.com/in/anjali-langade" target="_blank" class="contact-link">🔗 LinkedIn</a>
-        <a href="https://www.instagram.com/anuja_297" target="_blank" class="contact-link">📸 @anuja_297</a>
+  <!-- ONE-ON-ONE SUB-PAGE -->
+  <div id="one-on-one-page" class="sub-page" style="display:none;">
+    <div class="sub-page-inner">
+      <button class="back-btn" onclick="hidePage('one-on-one-page')">← Back</button>
+      <p class="section-label">One-on-One Sessions</p>
+      <h2 class="classes-heading">Choose Your Format</h2>
+      <div class="cards-grid">
+        <div class="yoga-card">
+          <h3 class="yoga-card-title">Online Session</h3>
+        </div>
+        <div class="yoga-card">
+          <h3 class="yoga-card-title">Offline Session</h3>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Anjali Langade · 500-Hour RYT · Yoga Alliance Certified · Bangalore, India</p>
+    <div class="footer-brand">
+      <span class="footer-logo">Move with Anjali</span>
+      <span class="footer-logo-sub">Strength · Balance · Flexibility</span>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/anuja_297" target="_blank" title="Instagram" class="social-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://twitter.com" target="_blank" title="Twitter / X" class="social-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.736l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.threads.net" target="_blank" title="Threads" class="social-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.858-6.43 2.522-8.479C5.856 1.205 8.61.024 12.191 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.74-1.811-.513-.67-1.333-1.04-2.413-1.101a4.534 4.534 0 0 0-.105-.003c-.707 0-2.29.157-3.104 1.75l-1.818-.97C6.347 5.232 8.583 4.79 10.168 4.79c.05 0 .1 0 .149.003 1.613.092 2.938.698 3.832 1.756.81.96 1.27 2.256 1.37 3.87.68.257 1.308.598 1.869 1.023 1.543 1.154 2.384 2.73 2.384 4.39 0 .506-.057 1.026-.168 1.544-.478 2.246-1.839 4.055-3.907 5.245-1.596.911-3.508 1.373-5.511 1.379zm.24-6.386c1.394-.079 2.246-.708 2.524-1.868a3.33 3.33 0 0 0 .065-.665 11.97 11.97 0 0 0-2.593-.304c-.79.044-1.423.239-1.836.564-.346.274-.504.628-.474 1.05.04.583.39 1.07 1.003 1.368.41.197.86.288 1.311.288a3.2 3.2 0 0 0 0-.433z"/></svg>
+      </a>
+      <a href="https://www.youtube.com" target="_blank" title="YouTube" class="social-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
   </footer>
 
   <script>
@@ -681,6 +943,18 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     });
+
+    function showPage(id) {
+      const page = document.getElementById(id);
+      page.style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    function hidePage(id) {
+      const page = document.getElementById(id);
+      page.style.animation = 'none';
+      page.style.display = 'none';
+    }
   </script>
 
 </body>
