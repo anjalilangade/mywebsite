@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anjali Langade | Yoga Instructor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <meta name="description" content="Anjali Langade — 500-Hour RYT Certified Ashtanga Vinyasa Yoga Instructor based in Bangalore. Online & offline personal and group classes.">
+  <title>Move with Anjali | Yoga Instructor Bangalore</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧘</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,8 +14,11 @@
       box-sizing: border-box;
     }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Georgia', serif;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
       color: #2c2c2c;
       background: #faf9f6;
     }
@@ -25,17 +30,23 @@
       width: 100%;
       background: transparent;
       z-index: 100;
-      padding: 24px 60px;
+      padding: 22px 60px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background 0.3s;
+      transition: background 0.4s, padding 0.3s;
     }
 
     nav.scrolled {
-      background: rgba(10, 10, 10, 0.85);
-      backdrop-filter: blur(10px);
+      background: rgba(250, 249, 246, 0.97);
+      backdrop-filter: blur(12px);
+      padding: 16px 60px;
+      box-shadow: 0 1px 20px rgba(0,0,0,0.06);
     }
+
+    nav.scrolled .logo { color: #5a7a5a; }
+    nav.scrolled ul a { color: #2c2c2c; }
+    nav.scrolled ul a:hover { color: #5a7a5a; }
 
     nav .logo {
       font-family: 'Cormorant Garamond', serif;
@@ -44,6 +55,8 @@
       color: #fff;
       font-weight: 500;
       font-style: italic;
+      transition: color 0.3s;
+      text-decoration: none;
     }
 
     nav ul {
@@ -54,16 +67,15 @@
 
     nav ul a {
       text-decoration: none;
-      color: rgba(255,255,255,0.85);
-      font-size: 0.82rem;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.78rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       transition: color 0.2s;
+      font-weight: 400;
     }
 
-    nav ul a:hover {
-      color: #fff;
-    }
+    nav ul a:hover { color: #fff; }
 
     /* HERO */
     .hero {
@@ -242,6 +254,21 @@
       background: #fff;
       max-width: 100%;
       padding: 90px 0;
+    }
+
+    .about-photo {
+      width: 100%;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     .about-inner {
@@ -440,6 +467,24 @@
       text-decoration: underline;
     }
 
+    .whatsapp-btn {
+      background: #25D366;
+      color: #fff !important;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none !important;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5a;
+      transform: translateY(-2px);
+      text-decoration: none !important;
+    }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -452,21 +497,38 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; padding: 0 32px; }
+      .hero-image-col { display: none; }
+      .hero { background-image: url('anjali.jpg'); background-size: cover; background-position: center top; }
+      .hero::before, .hero::after { display: none; }
+      .hero-content { padding-bottom: 100px; }
+      .hero h1 { font-size: 3.5rem; color: #fff; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+      .hero-tagline, .hero-sub { color: rgba(255,255,255,0.85); }
+      .btn { background: #fff; color: #1a1a1a; }
+      .btn-outline { border-color: rgba(255,255,255,0.8); color: #fff; }
+      .hero-yoga-text { display: none; }
       nav { padding: 16px 24px; }
-      nav ul { gap: 18px; }
-      .hero h1 { font-size: 2.4rem; }
+      nav ul { gap: 20px; }
+    }
+
+    @media (max-width: 768px) {
+      nav.scrolled { padding: 14px 24px; }
+      .hero h1 { font-size: 2.8rem; }
       .about-inner { grid-template-columns: 1fr; padding: 0 24px; }
+      .about-photo { max-height: 400px; aspect-ratio: unset; }
       .classes-grid { grid-template-columns: 1fr; }
-      section, .classes-inner, .about-inner { padding: 60px 24px; }
+      .classes-inner { padding: 0 24px; }
+      .hero-socials { right: 24px; bottom: 30px; }
+      .contact-links { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
-    <div class="logo">Move with Anjali</div>
+  <nav id="navbar">
+    <a href="#" class="logo">Move with Anjali</a>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#classes">Classes</a></li>
@@ -503,7 +565,10 @@
   <div id="about">
     <div class="about-inner">
       <div class="about-left">
-        <p class="section-label">About</p>
+        <div class="about-photo">
+          <img src="anjali.jpg" alt="Anjali Langade yoga pose at temple">
+        </div>
+        <p class="section-label" style="margin-top:32px;">About</p>
         <h2 class="section-title">Anjali<br>Langade</h2>
 
         <div class="credentials">
@@ -663,9 +728,9 @@
         your first session — Anjali would love to hear from you.
       </p>
       <div class="contact-links">
+        <a href="https://wa.me/919011418493?text=Hi%20Anjali!%20I%27m%20interested%20in%20your%20yoga%20classes." target="_blank" class="contact-link whatsapp-btn">💬 WhatsApp Me</a>
         <a href="mailto:anjalilangade@gmail.com" class="contact-link">📧 anjalilangade@gmail.com</a>
         <a href="tel:+919011418493" class="contact-link">📞 +91 90114 18493</a>
-        <a href="https://www.linkedin.com/in/anjali-langade" target="_blank" class="contact-link">🔗 LinkedIn</a>
         <a href="https://www.instagram.com/anuja_297" target="_blank" class="contact-link">📸 @anuja_297</a>
       </div>
     </div>
@@ -677,9 +742,10 @@
   </footer>
 
   <script>
-    const nav = document.querySelector('nav');
+    const nav = document.getElementById('navbar');
+    const heroHeight = document.querySelector('.hero').offsetHeight;
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
+      nav.classList.toggle('scrolled', window.scrollY > heroHeight * 0.7);
     });
   </script>
 
